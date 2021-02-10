@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AltamasBari.github.io/Task-Tracker/static/css/main.d3156bfe.chunk.css",
+    "main.js": "/AltamasBari.github.io/Task-Tracker/static/js/main.07634644.chunk.js",
+    "main.js.map": "/AltamasBari.github.io/Task-Tracker/static/js/main.07634644.chunk.js.map",
+    "runtime-main.js": "/AltamasBari.github.io/Task-Tracker/static/js/runtime-main.2877c5be.js",
+    "runtime-main.js.map": "/AltamasBari.github.io/Task-Tracker/static/js/runtime-main.2877c5be.js.map",
+    "static/js/2.6d45d078.chunk.js": "/AltamasBari.github.io/Task-Tracker/static/js/2.6d45d078.chunk.js",
+    "static/js/2.6d45d078.chunk.js.map": "/AltamasBari.github.io/Task-Tracker/static/js/2.6d45d078.chunk.js.map",
+    "static/js/3.67292b53.chunk.js": "/AltamasBari.github.io/Task-Tracker/static/js/3.67292b53.chunk.js",
+    "static/js/3.67292b53.chunk.js.map": "/AltamasBari.github.io/Task-Tracker/static/js/3.67292b53.chunk.js.map",
+    "index.html": "/AltamasBari.github.io/Task-Tracker/index.html",
+    "static/css/main.d3156bfe.chunk.css.map": "/AltamasBari.github.io/Task-Tracker/static/css/main.d3156bfe.chunk.css.map",
+    "static/js/2.6d45d078.chunk.js.LICENSE.txt": "/AltamasBari.github.io/Task-Tracker/static/js/2.6d45d078.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2877c5be.js",
+    "static/js/2.6d45d078.chunk.js",
+    "static/css/main.d3156bfe.chunk.css",
+    "static/js/main.07634644.chunk.js"
+  ]
+}
