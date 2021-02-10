@@ -19,7 +19,7 @@ function App() {
   // Fetch Tasks
   const fetchTasks = async () => {
     const res = await fetch(
-      "https://my-json-server.typicode.com/altamasbari/task-tracker/tasks"
+      "hhttps://my-json-server.typicode.com/altamasbari/db.json/tasks"
     );
     const data = await res.json();
 
@@ -29,7 +29,7 @@ function App() {
   // Fetch Task
   const fetchTask = async (id) => {
     const res = await fetch(
-      `https://my-json-server.typicode.com/altamasbari/task-tracker/tasks/${id}`
+      `hhttps://my-json-server.typicode.com/altamasbari/db.json/tasks/${id}`
     );
     const data = await res.json();
 
@@ -39,7 +39,7 @@ function App() {
   // Add Task
   const addTask = async (task) => {
     const res = await fetch(
-      "https://my-json-server.typicode.com/altamasbari/task-tracker/tasks",
+      "hhttps://my-json-server.typicode.com/altamasbari/db.json/tasks",
       {
         method: "POST",
         headers: {
@@ -57,7 +57,7 @@ function App() {
   // Delete Task
   const deleteTask = async (id) => {
     await fetch(
-      `https://my-json-server.typicode.com/altamasbari/task-tracker/tasks/${id}`,
+      `hhttps://my-json-server.typicode.com/altamasbari/db.json/tasks/${id}`,
       {
         method: "DELETE",
       }
@@ -72,7 +72,7 @@ function App() {
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
     const res = await fetch(
-      `https://my-json-server.typicode.com/altamasbari/task-tracker/tasks/${id}`,
+      `hhttps://my-json-server.typicode.com/altamasbari/db.json/tasks/${id}`,
       {
         method: "PUT",
         headers: {
