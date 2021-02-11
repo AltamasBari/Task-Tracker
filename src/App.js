@@ -43,6 +43,7 @@ function App() {
       {
         method: "POST",
         headers: {
+          "Access-Control-Allow-Origin": "*",
           "Content-type": "application/json",
         },
         body: JSON.stringify(task),
@@ -76,6 +77,7 @@ function App() {
       {
         method: "PUT",
         headers: {
+          "Access-Control-Allow-Origin": "*",
           "Content-type": "application/json",
         },
         body: JSON.stringify(updTask),
