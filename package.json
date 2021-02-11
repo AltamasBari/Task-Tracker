@@ -1,6 +1,6 @@
 {
   "name": "task-tracker",
-  "homepage": "https://AltamasBari.github.io/Task-Tracker",
+  "homepage": "https://AltamasBari.github.io/db.json",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
