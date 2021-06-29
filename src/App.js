@@ -7,10 +7,9 @@ import data from "./db.json";
 const LOCAL_STORAGE_KEY = "taskApp.todo";
 
 function App() {
-  const initdata = JSON.stringify(data.tasks);
-
   const [showAddTask, setShowAddTask] = useState(false);
-  const [tasks, setTasks] = useState([initdata]);
+  const [tasks, setTasks] = useState(data);
+  console.log(tasks);
 
   useEffect(() => {
     const localTask = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
