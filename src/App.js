@@ -2,93 +2,43 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import data from "./db.json";
+
+const LOCAL_STORAGE_KEY = "taskApp.todo";
 
 function App() {
+  const initdata = JSON.stringify(data.tasks);
+
   const [showAddTask, setShowAddTask] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([initdata]);
 
   useEffect(() => {
-    const getTasks = async () => {
-      const tasksFromServer = await fetchTasks();
-      setTasks(tasksFromServer);
-    };
-
-    getTasks();
+    const localTask = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (localTask) setTasks(localTask);
   }, []);
 
-  // Fetch Tasks
-  const fetchTasks = async () => {
-    const res = await fetch(
-      "https://my-json-server.typicode.com/altamasbari/db.json/tasks"
-    );
-    const data = await res.json();
-
-    return data;
-  };
-
-  // Fetch Task
-  const fetchTask = async (id) => {
-    const res = await fetch(
-      `https://my-json-server.typicode.com/altamasbari/db.json/tasks/${id}`
-    );
-    const data = await res.json();
-
-    return data;
-  };
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+  }, [tasks]);
 
   // Add Task
-  const addTask = async (task) => {
-    const res = await fetch(
-      "https://my-json-server.typicode.com/altamasbari/db.json/tasks",
-      {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(task),
-      }
-    );
-
-    const data = await res.json();
-
-    setTasks([...tasks, data]);
+  const addTask = (task) => {
+    setTasks((prevTasks) => {
+      return [...prevTasks, task];
+    });
   };
 
   // Delete Task
-  const deleteTask = async (id) => {
-    await fetch(
-      `https://my-json-server.typicode.com/altamasbari/db.json/tasks/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
-
+  const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
   // Toggle Reminder
-  const toggleReminder = async (id) => {
-    const taskToToggle = await fetchTask(id);
-    const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
-
-    const res = await fetch(
-      `https://my-json-server.typicode.com/altamasbari/db.json/tasks/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(updTask),
-      }
-    );
-
-    const data = await res.json();
-
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, reminder: data.reminder } : task
-      )
-    );
+  const toggleReminder = (id) => {
+    const newTasks = [...tasks];
+    const togTask = newTasks.find((task) => task.id === id);
+    togTask.reminder = !togTask.reminder;
+    setTasks(newTasks);
   };
 
   return (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function AddTask({ onAdd }) {
   const [text, setText] = useState("");
@@ -13,7 +14,7 @@ function AddTask({ onAdd }) {
       return;
     }
 
-    onAdd({ text, day, reminder });
+    onAdd({ id: uuidv4(), text, day, reminder });
 
     setText("");
     setDay("");
